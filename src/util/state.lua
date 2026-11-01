@@ -5,6 +5,7 @@ function state.shutdown()
     task.cancel(_G.RES_Thread)
     _G.RES_Thread = nil
     _G.RES_State = nil
+    _G.RES_Loaded = false
 end
 
 return state
