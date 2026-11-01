@@ -49,7 +49,7 @@ local function run()
     task.wait(3)
 
     remote_util.upd_booth_prop("desc", "")
-    
+
     _G.RES_State.current_running = "waiting_for_start"
 
     remote_util.upd_booth_props({
@@ -62,7 +62,7 @@ local function run()
     text_util.text_loop(
         {"Waiting for start", "Waiting for start.", "Waiting for start..", "Waiting for start..."},
         -- 5,
-        function() return _G.RES_State.started == end,
+        function() return _G.RES_State.started == false end,
         2
     )
 
