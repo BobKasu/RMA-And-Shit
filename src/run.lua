@@ -61,8 +61,8 @@ local function run()
     
     text_util.text_loop(
         {"Waiting for start", "Waiting for start.", "Waiting for start..", "Waiting for start..."},
-        5,
-        -- function() return _G.RES_State.started == end,
+        -- 5,
+        function() return _G.RES_State.started == end,
         2
     )
 
