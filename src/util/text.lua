@@ -5,7 +5,7 @@ local text = {}
 
 function text.text_loop(text_array, count_or_condition_func, delay)
 
-    if type(count_or_condition) == "boolean" then
+    if type(count_or_condition_func) == "function" then
         while count_or_condition_func() do -- If it is a 'condition', expected to be a function wrapper that returns the condition
             for _, txt in ipairs(text_array) do
                 remote.upd_booth_prop("desc", txt)
@@ -15,7 +15,7 @@ function text.text_loop(text_array, count_or_condition_func, delay)
     elseif type(count_or_condition_func) == "number" then
         for i = 1, count_or_condition_func do
             for _, txt in ipairs(text_array) do
-                remote.upd_booth_one("desc", txt)
+                remote.upd_booth_prop("desc", txt)
                 task.wait(delay)
             end
         end
