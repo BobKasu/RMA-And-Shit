@@ -4,11 +4,9 @@ local remote = {}
 
 local function _table_copy(source, destination)
     table.clear(destination)
-    local i = 1
 
-    for key, _ in pairs(source) do
-        destination[key] = source[key]
-        i = i + 1
+    for key, val in pairs(source) do
+        destination[key] = val
     end
 end
 
