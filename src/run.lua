@@ -5,20 +5,20 @@ local function run()
     _G.RES_Loaded = true
     _G.RES_Thread = coroutine.running()
 
-    local GH_REPO_URL = "https://raw.githubusercontent.com/BobKasu/RMA-And-Shit/main/%s.lua"
+    local GH_REPO_URL = "https://raw.githubusercontent.com/BobKasu/RMA-And-Shit/main/%s"
 
     _G.RES_web_import = function(file)
         return loadstring(
             game:HttpGetAsync((GH_REPO_URL):format(file)), file .. ".lua"
-        )
+        )()
     end
     _G.RES_json_decode_file = function(file)
         local _json = game:HttpGetAsync((GH_REPO_URL):format(file))
         return game:GetService("HttpService"):JSONDecode(_json)
     end
 
-    local remote_util = _G.RES_web_import("src/util/remote")
-    local text_util = _G.RES_web_import("src/util/text")
+    local remote_util = _G.RES_web_import("src/util/remote.lua")
+    local text_util = _G.RES_web_import("src/util/text.lua")
     
     -- On shutdown, set to nil
     _G.RES_State = {
