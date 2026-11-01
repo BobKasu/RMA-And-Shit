@@ -92,4 +92,4 @@ local thread = task.spawn(run)
         -- move the extra stuff aside from the actual setup like text loop, etc into a different func called 'intro' for example to be called in run, so run only has the setup stuff
         -- add a custom config feature where the script caller adds a custom global "custom config" table into the calling fetch script, where they can make their own custom configurations like color, images, settings, etc
         
-]]--
+--]]
