@@ -2,7 +2,6 @@ local function run()
     if _G.RES_Loaded == true then 
         return
     end
-    _G.RES_Loaded = true
     _G.RES_Thread = coroutine.running()
 
     local GH_REPO_URL = "https://raw.githubusercontent.com/BobKasu/RMA-And-Shit/main/%s"
@@ -19,6 +18,8 @@ local function run()
 
     local remote_util = _G.RES_web_import("src/util/remote.lua")
     local text_util = _G.RES_web_import("src/util/text.lua")
+
+    _G.RES_Loaded = true -- set loaded to true after actual module setup, etc
     
     -- On shutdown, set to nil
     _G.RES_State = {

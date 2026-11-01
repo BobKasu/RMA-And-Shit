@@ -1,5 +1,5 @@
 local web_import = _G.RES_web_import
-local remote = web_import("util/remote.lua")
+local remote = web_import("src/util/remote.lua")
 
 local text = {}
 
@@ -31,7 +31,7 @@ function text.typewrite(text, delay)
         local index = #curr
         
         curr = curr .. text:sub(index + 1, index + 1)
-        remote.upd_booth_prop("desc", text)
+        remote.upd_booth_prop("desc", curr)
 
         task.wait(delay)
     end
