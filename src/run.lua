@@ -78,4 +78,4 @@ local function run()
 
 end
 
-local thread = task.spawn(run) -- nipmaudsljsdlll
+local thread = task.spawn(run) 
