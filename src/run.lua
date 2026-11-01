@@ -48,7 +48,7 @@ local function run()
 
     task.wait(3)
 
-    remote_util.upd_booth_prop("desc", "")
+    remote_util.upd_booth_prop("desc", "...")
 
     _G.RES_State.current_running = "waiting_for_start"
 
@@ -78,3 +78,18 @@ local function run()
 end
 
 local thread = task.spawn(run) 
+
+
+-- [[
+
+    TODO :
+        
+        -- make changes to src/bg/chat.lua (it is a core task that runs in the background at all times, hence the folder name 'bg'. it checks for general commands like 'stop' or 'shutdown', etc). 
+        -- add chat utils, etc. this is for providing utils that lets SERVICES use n call them in their files and use them, like game services, menu etc. they are used for their own independent things or commands, not commands like stop or shutdown etc 
+    
+        POTENTIAL
+
+        -- move the extra stuff aside from the actual setup like text loop, etc into a different func called 'intro' for example to be called in run, so run only has the setup stuff
+        -- add a custom config feature where the script caller adds a custom global "custom config" table into the calling fetch script, where they can make their own custom configurations like color, images, settings, etc
+        
+]]--
