@@ -48,8 +48,8 @@ local function run()
 
     task.wait(3)
 
-    -- ss
-
+    remote_util.upd_booth_prop("desc", "")
+    
     _G.RES_State.current_running = "waiting_for_start"
 
     remote_util.upd_booth_props({
