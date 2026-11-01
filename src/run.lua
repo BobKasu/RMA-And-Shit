@@ -66,7 +66,7 @@ local function run()
         2
     )
 
-    
+    state_util.shutdown()
 
 end
 
