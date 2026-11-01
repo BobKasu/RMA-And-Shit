@@ -32,7 +32,7 @@ local function run()
             ["booth"] = "Default Booth",
             ["image"] = "",
             ["pollYes"] = "",
-            ["desc"] = "[RES] Loading...",
+            ["desc"] = "Loading...",
             ["pollNo"] = "",
             ["accentColor"] = Color3.new(59 / 255, 59 / 255, 59 / 255),
             ["primaryColor"] = Color3.new(59 / 255, 59 / 255, 59 / 255), 
@@ -42,10 +42,10 @@ local function run()
 
     remote_util.upd_booth(nil)
 
-    -- setup
+    -- more setup
     --------
 
-    task.wait(1)
+    task.wait(3)
 
     -- ss
 
@@ -59,9 +59,9 @@ local function run()
     task.wait(0.1)
     
     text_util.text_loop(
-        {"Waiting for start", "Waiting for start_"},
+        {"Waiting for start", "Waiting for start.", "Waiting for start..", "Waiting for start..."},
         function() return _G.RES_State.started == false end,
-        1
+        2
     )
 
 end
