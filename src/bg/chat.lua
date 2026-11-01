@@ -1,0 +1,3 @@
+local chat = {}
+
+return chat

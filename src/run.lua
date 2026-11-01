@@ -8,7 +8,7 @@ local function run()
 
     _G.RES_web_import = function(file)
         return loadstring(
-            game:HttpGetAsync((GH_REPO_URL):format(file)), file .. ".lua"
+            game:HttpGetAsync((GH_REPO_URL):format(file)), file
         )()
     end
     _G.RES_json_decode_file = function(file)
@@ -18,6 +18,7 @@ local function run()
 
     local remote_util = _G.RES_web_import("src/util/remote.lua")
     local text_util = _G.RES_web_import("src/util/text.lua")
+    local state_util._G.RES_web_import("src/util/state.lua")
 
     _G.RES_Loaded = true -- set loaded to true after actual module setup, etc
     
@@ -60,9 +61,12 @@ local function run()
     
     text_util.text_loop(
         {"Waiting for start", "Waiting for start.", "Waiting for start..", "Waiting for start..."},
-        function() return _G.RES_State.started == false end,
+        5
+        -- function() return _G.RES_State.started == end,
         2
     )
+
+    
 
 end
 
