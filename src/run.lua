@@ -72,6 +72,10 @@ local function run()
 
     state_util.shutdown()
 
+    task.wait(2)
+
+    remote_util.upd_booth_prop("desc", "test")
+
 end
 
 local thread = task.spawn(run) -- nipmaudsljsdlll
