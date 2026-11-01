@@ -54,19 +54,22 @@ local function run()
 
     remote_util.upd_booth_props({
         ["primaryColor"] = Color3.new(237 / 255, 234 / 255, 22 / 255),
-        ["accentColor"] = Color3.new(222 / 255, 219 / 255, 34 / 255)
+        ["accentColor"] = Color3.new(222 / 255, 219 / 255, 34 / 255),
+        ["image"] = "11104447788"
     })
 
     task.wait(0.1)
     
     text_util.text_loop(
         {"Waiting for start", "Waiting for start.", "Waiting for start..", "Waiting for start..."},
-        -- 5,
-        function() return _G.RES_State.started == false end,
+        5,
+        -- function() return _G.RES_State.started == false end,
         2
     )
 
-    -- state_util.shutdown()
+    task.wait(10)
+
+    state_util.shutdown()
 
 end
 
