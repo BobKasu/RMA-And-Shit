@@ -68,12 +68,11 @@ local function run()
         2
     )
 
-    task.wait(10)
-
     state_util.shutdown()
 
     task.wait(2)
 
+    -- This won't run cuz it shut down
     remote_util.upd_booth_prop("desc", "test")
 
 end
