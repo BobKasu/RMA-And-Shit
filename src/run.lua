@@ -18,7 +18,7 @@ local function run()
 
     local remote_util = _G.RES_web_import("src/util/remote.lua")
     local text_util = _G.RES_web_import("src/util/text.lua")
-    local state_util._G.RES_web_import("src/util/state.lua")
+    local state_util = _G.RES_web_import("src/util/state.lua")
 
     _G.RES_Loaded = true -- set loaded to true after actual module setup, etc
     
