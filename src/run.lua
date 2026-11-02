@@ -25,7 +25,7 @@ local function setup()
         ["started"] = false,
         ["current_running"] = "setup",
         ["owner_username"] = game.Players.LocalPlayer.Name, -- This is to allow owner transfership, set to the username of the player calling the script by default
-        ["interact_blacklist"] = {},
+        ["interact_blacklist"] = {},        
         ["targets"] = {},
         ["booth_properties"] = {
             ["booth"] = "Default Booth",
@@ -40,6 +40,8 @@ local function setup()
     }
 
     remote_util.upd_booth(nil)
+
+    state_util.load_task("chat")
 end
 
 local function intro()
@@ -85,16 +87,16 @@ end
 
 local thread = task.spawn(run) 
 
-
 --[[
 
     TODO :
         
         -- make changes to src/bg/chat.lua (it is a core task that runs in the background at all times, hence the folder name 'bg'. it checks for general commands like 'stop' or 'shutdown', etc). 
         -- add chat utils, etc. this is for providing utils that lets SERVICES use n call them in their files and use them, like game services, menu etc. they are used for their own independent things or commands, not commands like stop or shutdown etc 
-    
+
         POTENTIAL
 
+        -- add tasks prop in res_state 
         -- move the extra stuff aside from the actual setup like text loop, etc into a different func called 'intro' for example to be called in run, so run only has the setup stuff
         -- add a custom config feature where the script caller adds a custom global "custom config" table into the calling fetch script, where they can make their own custom configurations like color, images, settings, etc
         

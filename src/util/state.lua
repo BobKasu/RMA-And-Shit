@@ -11,4 +11,13 @@ function state.shutdown()
     task.cancel(old)
 end
 
+function state.name_is_target(name)
+    return table.find(_G.RES_State.targets, name) == true
+end
+
+function state.load_task(task)
+    task_module = _G.RES_web_import("src/bg/" .. task .. ".lua")
+    task_module.start()
+end
+
 return state

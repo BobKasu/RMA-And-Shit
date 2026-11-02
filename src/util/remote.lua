@@ -2,7 +2,10 @@ local UpdBoothRemote = game:GetService("ReplicatedStorage").Remotes.CommitBoothD
 
 local remote = {}
 
-local function _table_copy(source, destination)
+
+--plydlll
+
+local function table_copy(source, destination)
     table.clear(destination)
 
     for key, val in pairs(source) do
@@ -14,7 +17,7 @@ function remote.upd_booth(args)
     local BoothProperties = _G.RES_State.booth_properties
 
     if args then -- Because it could be nil, indicating that booth properties were already modified before calling
-        _table_copy(args, BoothProperties)
+        table_copy(args, BoothProperties)
     end
 
     UpdBoothRemote:InvokeServer(BoothProperties)
