@@ -1,10 +1,8 @@
-local function run()
-    if _G.RES_Loaded == true then 
-        return
-    end
-    _G.RES_Thread = coroutine.running()
+local remote_util, text_util, state_util = nil, nil, nil
+local GH_REPO_URL = "https://raw.githubusercontent.com/BobKasu/RMA-And-Shit/main/%s"
 
-    local GH_REPO_URL = "https://raw.githubusercontent.com/BobKasu/RMA-And-Shit/main/%s"
+local function setup()
+    _G.RES_Thread = coroutine.running()
 
     _G.RES_web_import = function(file)
         return loadstring(
@@ -16,9 +14,9 @@ local function run()
         return game:GetService("HttpService"):JSONDecode(_json)
     end
 
-    local remote_util = _G.RES_web_import("src/util/remote.lua")
-    local text_util = _G.RES_web_import("src/util/text.lua")
-    local state_util = _G.RES_web_import("src/util/state.lua")
+    remote_util = _G.RES_web_import("src/util/remote.lua")
+    text_util = _G.RES_web_import("src/util/text.lua")
+    state_util = _G.RES_web_import("src/util/state.lua")
 
     _G.RES_Loaded = true -- set loaded to true after actual module setup, etc
     
@@ -40,7 +38,9 @@ local function run()
             ["blacklist"] = {}
         }
     }
+end
 
+local function intro()
     remote_util.upd_booth(nil)
 
     -- more setup
@@ -74,7 +74,15 @@ local function run()
 
     -- This won't run cuz it shut down
     remote_util.upd_booth_prop("desc", "test")
+end
 
+local function run()
+    if _G.RES_Loaded == true then 
+        return
+    end
+
+    setup()
+    intro()
 end
 
 local thread = task.spawn(run) 
