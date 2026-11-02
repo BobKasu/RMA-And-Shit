@@ -38,11 +38,11 @@ local function setup()
             ["blacklist"] = {}
         }
     }
+
+    remote_util.upd_booth(nil)
 end
 
 local function intro()
-    remote_util.upd_booth(nil)
-
     -- more setup
     --------
 
@@ -88,7 +88,7 @@ end
 local thread = task.spawn(run) 
 
 
--- [[
+--[[
 
     TODO :
         
