@@ -62,8 +62,7 @@ local function intro()
     
     text_util.text_loop(
         {"1", "2", "3"},
-        {"Waiting for start", "Waiting for start.", "Waiting for start..", "Waiting for start..."},
-        5, -- ilildllll
+        {"Waiting for start", "Waiting for start.", "Waiting for start..", "Waiting for start..."}, -- ilildllll
         -- function() return _G.RES_State.started == false end,
         2
     )
