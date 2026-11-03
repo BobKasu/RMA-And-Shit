@@ -41,7 +41,7 @@ local function setup()
 
     remote_util.upd_booth(nil)
 
-    state_util.load_task("chat")
+    -- state_util.load_task("chat")
 end
 
 local function intro()
