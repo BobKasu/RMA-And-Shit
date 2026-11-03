@@ -17,7 +17,7 @@ end
 
 function state.load_task(task)
     local task_module = _G.RES_web_import("src/bg/" .. task .. ".lua")
-    task_module.start()
+    task.spawn(function() task_module.start() end)
 end
 
 return state
