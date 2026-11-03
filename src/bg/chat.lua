@@ -16,7 +16,7 @@ local function commands.shutdown(username)
 end
 
 local function command(username, text, args) -- args is table
-    local command_func = commands[text] -
+    local command_func = commands[text]
     if not command_func then return end
 
     local param_count, _ = debug.info(command_func, "a")
@@ -29,7 +29,7 @@ end
 local function check_chat()
     -- might move the command behavior in this to a command util file so that multiple files can just have this same func
 
-    if connection.Connected then return end
+    if connection and connection.Connected then return end
 
     local Chat = game:GetService("TextChatService")
 
@@ -65,7 +65,7 @@ function chat.start()
 end
 
 function chat.stop()
-    if not connection.Connected then return end
+    if not connection then return end
 
     connection:Disconnect()
     connection = nil
