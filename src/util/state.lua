@@ -12,12 +12,12 @@ function state.shutdown()
 end
 
 function state.name_is_target(name)
-    return table.find(_G.RES_State.targets, name) == true
+    return table.find(_G.RES_State.targets, name) ~= nil
 end
 
---[[function state.load_task(task)
-    task_module = _G.RES_web_import("src/bg/" .. task .. ".lua")
+function state.load_task(task)
+    local task_module = _G.RES_web_import("src/bg/" .. task .. ".lua")
     task_module.start()
-end]]--
+end
 
 return state
