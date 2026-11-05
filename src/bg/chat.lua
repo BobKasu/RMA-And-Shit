@@ -15,6 +15,11 @@ function commands.shutdown(username)
     state_util.shutdown()
 end
 
+function commands.start(username)
+    if username ~= _G.RES_State.owner_username then return end
+    _G.RES_State.started = true
+end
+
 local function command(username, text, args) -- args is table
     local command_func = commands[text]
     if not command_func then return end
