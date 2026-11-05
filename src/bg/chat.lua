@@ -8,9 +8,9 @@ local state_util = web_import("src/util/state.lua")
 
 local commands = {}
 
-local function commands.join(username) end
+function commands.join(username) end
 
-local function commands.shutdown(username) 
+function commands.shutdown(username) 
     if username ~= _G.RES_State.owner_username then return end
     state_util.shutdown()
 end
